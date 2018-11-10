@@ -18,8 +18,8 @@
 		AFF563122197589D003AF622 /* babelONUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF563112197589D003AF622 /* babelONUITests.swift */; };
 		AFF56323219765A0003AF622 /* Conversation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF56322219765A0003AF622 /* Conversation.swift */; };
 		AFF56325219765B8003AF622 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF56324219765B8003AF622 /* User.swift */; };
-		AFF56327219769E3003AF622 /* loginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF56326219769E3003AF622 /* loginViewController.swift */; };
 		AFF5632921976C5F003AF622 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF5632821976C5F003AF622 /* Message.swift */; };
+		B36826C6219784A700BA84DE /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36826C4219784A700BA84DE /* Helpers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,8 +57,8 @@
 		AFF563132197589D003AF622 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AFF56322219765A0003AF622 /* Conversation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Conversation.swift; sourceTree = "<group>"; };
 		AFF56324219765B8003AF622 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		AFF56326219769E3003AF622 /* loginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loginViewController.swift; sourceTree = "<group>"; };
 		AFF5632821976C5F003AF622 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		B36826C4219784A700BA84DE /* Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +109,7 @@
 		AFF562EB21975899003AF622 /* babelON */ = {
 			isa = PBXGroup;
 			children = (
+				B36826C4219784A700BA84DE /* Helpers.swift */,
 				AFF562EC21975899003AF622 /* AppDelegate.swift */,
 				AFF562F121975899003AF622 /* MasterViewController.swift */,
 				AFF562F321975899003AF622 /* DetailViewController.swift */,
@@ -119,7 +120,6 @@
 				AFF562EE21975899003AF622 /* babelON.xcdatamodeld */,
 				AFF56322219765A0003AF622 /* Conversation.swift */,
 				AFF56324219765B8003AF622 /* User.swift */,
-				AFF56326219769E3003AF622 /* loginViewController.swift */,
 				AFF5632821976C5F003AF622 /* Message.swift */,
 			);
 			path = babelON;
@@ -277,9 +277,9 @@
 				AFF56323219765A0003AF622 /* Conversation.swift in Sources */,
 				AFF562ED21975899003AF622 /* AppDelegate.swift in Sources */,
 				AFF562F021975899003AF622 /* babelON.xcdatamodeld in Sources */,
+				B36826C6219784A700BA84DE /* Helpers.swift in Sources */,
 				AFF5632921976C5F003AF622 /* Message.swift in Sources */,
 				AFF562F221975899003AF622 /* MasterViewController.swift in Sources */,
-				AFF56327219769E3003AF622 /* loginViewController.swift in Sources */,
 				AFF56325219765B8003AF622 /* User.swift in Sources */,
 				AFF562F421975899003AF622 /* DetailViewController.swift in Sources */,
 			);
