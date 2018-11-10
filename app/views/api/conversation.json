@@ -1,0 +1,5 @@
+{
+    "id": "int64",
+    "participants": ["users"],
+    "messages": ["messages"]
+}

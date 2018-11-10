@@ -1,0 +1,6 @@
+{
+    "id": "int64",
+    "message": "message",
+    "content": "string",
+    "language": "string"
+}

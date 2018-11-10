@@ -1,0 +1,20 @@
+{
+    "id": "int64",
+    "sent_from": "user",
+    "time_sent": "date",
+    "time_read": "date",
+    "translated_content": "string",
+    "content": "string"
+}
+
+
+translations [ 1, 2, 4 ]
+original 1
+
+
+
+/url?lang=en
+
+content: alsdjaskld
+original: alksdjalskjd
+usersent: alskdjasldkj
