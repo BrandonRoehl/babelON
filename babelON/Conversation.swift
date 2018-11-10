@@ -13,6 +13,13 @@ class Conversation: NSObject {
     var id:Int
     var participants:[User]
     var msgHistory:[Message]
+    override var description: String {
+        var names:String = ""
+        for each in participants {
+            names.append(each.firstName)
+        }
+        return names
+    }
     
     init(id:Int, participants:[User], msgHistory:[Message]){
         self.id = id
@@ -20,5 +27,6 @@ class Conversation: NSObject {
         self.msgHistory = msgHistory
         
     }
+    
     
 }

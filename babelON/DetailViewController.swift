@@ -11,7 +11,7 @@ import UIKit
 class DetailViewController: UIViewController {
 
     @IBOutlet weak var detailDescriptionLabel: UILabel!
-
+    weak var conversation:Conversation?
 
     func configureView() {
         // Update the user interface for the detail item.
@@ -20,11 +20,14 @@ class DetailViewController: UIViewController {
                 label.text = detail.timestamp!.description
             }
         }
+        
+        
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        navigationItem.title = conversation?.description
         configureView()
     }
 
@@ -32,6 +35,7 @@ class DetailViewController: UIViewController {
         didSet {
             // Update the view.
             configureView()
+            
         }
     }
 
