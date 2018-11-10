@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :localizations
+  resources :messages
     devise_for :users, controllers: {
         registrations: 'users/registrations'
     }

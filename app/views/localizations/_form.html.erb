@@ -1,0 +1,32 @@
+<%= form_with(model: localization, local: true) do |form| %>
+  <% if localization.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(localization.errors.count, "error") %> prohibited this localization from being saved:</h2>
+
+      <ul>
+      <% localization.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :message_id %>
+    <%= form.text_field :message_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :content %>
+    <%= form.text_area :content %>
+  </div>
+
+  <div class="field">
+    <%= form.label :lang %>
+    <%= form.text_field :lang %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

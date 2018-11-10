@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  time_sent: 2018-11-10 14:50:15
+  time_read: 2018-11-10 14:50:15
+  base: one
+
+two:
+  user: two
+  time_sent: 2018-11-10 14:50:15
+  time_read: 2018-11-10 14:50:15
+  base: two
