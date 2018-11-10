@@ -37,6 +37,12 @@ gem 'bootsnap', '>= 1.1.0', require: false
 # User login
 gem 'devise', '~> 4.5'
 
+# for postgress
+gem "pg", "~> 1.1"
+
+# google cloud platform
+gem "appengine", "~> 0.4.6"
+
 gem 'nokogiri', '~> 1.8.5'
 
 group :development, :test do
