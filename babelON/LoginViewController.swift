@@ -11,12 +11,10 @@ import UIKit
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
 	
-	@IBOutlet weak var usernameTextField: UITextField!
-	@IBOutlet weak var passwordTextField: UITextField!
-	@IBOutlet weak var onepasswordButton: UIButton!
-	@IBOutlet weak var loginButton: UIButton!
-	@IBOutlet weak var activityIndicator: UIActivityIndicatorView!
-	@IBOutlet weak var invalidLabel: UILabel!
+	@IBOutlet var email: UITextField!
+	@IBOutlet var password: UITextField!
+	
+	@IBOutlet var loadingIndicator: UIActivityIndicatorView!
 	
 	private var initial: Bool = false
 	
@@ -34,28 +32,30 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 		// Do any additional setup before the view apears.
 	}
 	
-	
 	@IBAction func triggerLogin(_ sender: Any) {
 		self.loginFromView()
 	}
 	
 	func loginFromView() {
-		self.usernameTextField.isEnabled = false
-		self.passwordTextField.isEnabled = false
-		self.activityIndicator.startAnimating()
-		let username = self.usernameTextField.text
-		let password = self.passwordTextField.text
+		self.email.isEnabled = false
+		self.password.isEnabled = false
+		self.loadingIndicator.startAnimating()
+		
+		let username = self.email.text
+		let password = self.password.text
+		
 		DispatchQueue.global(qos: .background).async {
 			if login(username: username, password: password) {
 				DispatchQueue.main.sync {
 					self.dismiss(animated: true, completion: nil)
 				}
+				
 			} else {
 				DispatchQueue.main.async {
-					self.usernameTextField.isEnabled = true
-					self.passwordTextField.isEnabled = true
-					self.activityIndicator.stopAnimating()
-					self.invalidLabel.isHidden = false
+					self.email.isEnabled = true
+					self.password.isEnabled = true
+					self.loadingIndicator.stopAnimating()
+//					self.invalidLabel.isHidden = false
 				}
 			}
 		}
