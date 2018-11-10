@@ -16,6 +16,9 @@
 		AFF562FC2197589C003AF622 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFF562FA2197589C003AF622 /* LaunchScreen.storyboard */; };
 		AFF563072197589D003AF622 /* babelONTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF563062197589C003AF622 /* babelONTests.swift */; };
 		AFF563122197589D003AF622 /* babelONUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF563112197589D003AF622 /* babelONUITests.swift */; };
+		AFF5632121976594003AF622 /* contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF5632021976594003AF622 /* contact.swift */; };
+		AFF56323219765A0003AF622 /* conversation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF56322219765A0003AF622 /* conversation.swift */; };
+		AFF56325219765B8003AF622 /* user.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF56324219765B8003AF622 /* user.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +54,9 @@
 		AFF5630D2197589D003AF622 /* babelONUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = babelONUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AFF563112197589D003AF622 /* babelONUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = babelONUITests.swift; sourceTree = "<group>"; };
 		AFF563132197589D003AF622 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AFF5632021976594003AF622 /* contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = contact.swift; sourceTree = "<group>"; };
+		AFF56322219765A0003AF622 /* conversation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = conversation.swift; sourceTree = "<group>"; };
+		AFF56324219765B8003AF622 /* user.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = user.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +115,9 @@
 				AFF562FA2197589C003AF622 /* LaunchScreen.storyboard */,
 				AFF562FD2197589C003AF622 /* Info.plist */,
 				AFF562EE21975899003AF622 /* babelON.xcdatamodeld */,
+				AFF5632021976594003AF622 /* contact.swift */,
+				AFF56322219765A0003AF622 /* conversation.swift */,
+				AFF56324219765B8003AF622 /* user.swift */,
 			);
 			path = babelON;
 			sourceTree = "<group>";
@@ -262,9 +271,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AFF56323219765A0003AF622 /* conversation.swift in Sources */,
 				AFF562ED21975899003AF622 /* AppDelegate.swift in Sources */,
 				AFF562F021975899003AF622 /* babelON.xcdatamodeld in Sources */,
 				AFF562F221975899003AF622 /* MasterViewController.swift in Sources */,
+				AFF56325219765B8003AF622 /* user.swift in Sources */,
+				AFF5632121976594003AF622 /* contact.swift in Sources */,
 				AFF562F421975899003AF622 /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
