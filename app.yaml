@@ -3,11 +3,7 @@ env: flex
 runtime: ruby
 
 env_variables:
-    SECRET_KEY_BASE: 315d3cf84e9bd9e0512b8278152719feee04c50d7ea01d4f0e6f41c68da802f0e576d53a8c46f6f7b6e3cdc3685c310bfb6685a93864099f018d1b4f75a0a577
+  SECRET_KEY_BASE: 315d3cf84e9bd9e0512b8278152719feee04c50d7ea01d4f0e6f41c68da802f0e576d53a8c46f6f7b6e3cdc3685c310bfb6685a93864099f018d1b4f75a0a577
 
 manual_scaling:
   instances: 1
-resources:
-  cpu: 1
-  memory_gb: 0.5
-  disk_size_gb: 1
