@@ -20,6 +20,7 @@
 		AFF56325219765B8003AF622 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF56324219765B8003AF622 /* User.swift */; };
 		AFF5632921976C5F003AF622 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF5632821976C5F003AF622 /* Message.swift */; };
 		B36826C6219784A700BA84DE /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36826C4219784A700BA84DE /* Helpers.swift */; };
+		B36826CF2197899E00BA84DE /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36826CE2197899E00BA84DE /* LoginViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		AFF56324219765B8003AF622 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		AFF5632821976C5F003AF622 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		B36826C4219784A700BA84DE /* Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
+		B36826CE2197899E00BA84DE /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +123,7 @@
 				AFF56322219765A0003AF622 /* Conversation.swift */,
 				AFF56324219765B8003AF622 /* User.swift */,
 				AFF5632821976C5F003AF622 /* Message.swift */,
+				B36826CE2197899E00BA84DE /* LoginViewController.swift */,
 			);
 			path = babelON;
 			sourceTree = "<group>";
@@ -274,6 +277,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B36826CF2197899E00BA84DE /* LoginViewController.swift in Sources */,
 				AFF56323219765A0003AF622 /* Conversation.swift in Sources */,
 				AFF562ED21975899003AF622 /* AppDelegate.swift in Sources */,
 				AFF562F021975899003AF622 /* babelON.xcdatamodeld in Sources */,
@@ -457,7 +461,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2NE7PNK89E;
 				INFOPLIST_FILE = babelON/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -474,7 +480,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2NE7PNK89E;
 				INFOPLIST_FILE = babelON/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
