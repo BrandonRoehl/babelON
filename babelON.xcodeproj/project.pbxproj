@@ -19,6 +19,7 @@
 		AFF5632121976594003AF622 /* contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF5632021976594003AF622 /* contact.swift */; };
 		AFF56323219765A0003AF622 /* conversation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF56322219765A0003AF622 /* conversation.swift */; };
 		AFF56325219765B8003AF622 /* user.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF56324219765B8003AF622 /* user.swift */; };
+		AFF56327219769E3003AF622 /* loginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF56326219769E3003AF622 /* loginViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		AFF5632021976594003AF622 /* contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = contact.swift; sourceTree = "<group>"; };
 		AFF56322219765A0003AF622 /* conversation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = conversation.swift; sourceTree = "<group>"; };
 		AFF56324219765B8003AF622 /* user.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = user.swift; sourceTree = "<group>"; };
+		AFF56326219769E3003AF622 /* loginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loginViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +120,7 @@
 				AFF5632021976594003AF622 /* contact.swift */,
 				AFF56322219765A0003AF622 /* conversation.swift */,
 				AFF56324219765B8003AF622 /* user.swift */,
+				AFF56326219769E3003AF622 /* loginViewController.swift */,
 			);
 			path = babelON;
 			sourceTree = "<group>";
@@ -275,6 +278,7 @@
 				AFF562ED21975899003AF622 /* AppDelegate.swift in Sources */,
 				AFF562F021975899003AF622 /* babelON.xcdatamodeld in Sources */,
 				AFF562F221975899003AF622 /* MasterViewController.swift in Sources */,
+				AFF56327219769E3003AF622 /* loginViewController.swift in Sources */,
 				AFF56325219765B8003AF622 /* user.swift in Sources */,
 				AFF5632121976594003AF622 /* contact.swift in Sources */,
 				AFF562F421975899003AF622 /* DetailViewController.swift in Sources */,
