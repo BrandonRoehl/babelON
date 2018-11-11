@@ -1,3 +1,4 @@
+
 App.cable.subscriptions.create(
     {
         channel: "ChatChannel", id: "1"
@@ -17,13 +18,10 @@ App.cable.subscriptions.create(
         },
 
         received: function (data) {
+            $("#messages").load(location.href+" #messages>*","", function () {
+                $('#messages').scrollTop($('#messages')[0].scrollHeight - $('#messages')[0].clientHeight);
+            });
             console.log("received");
-            if Turbolinks.supported {
-                Turbolinks.visit(window.location.href);
-            } else {
-                window.location.reload();
-            }
-            window.scrollTo(0,document.body.scrollHeight);
         }
     }
 );

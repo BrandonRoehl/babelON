@@ -1,7 +1,9 @@
-<% @conversation.messages.each do |message| %>
-  <b><%= message.user.username %></b>
-  <p><%= message.local(current_user.lang).content %></p>
-<% end %>
+<div id="messages" style="max-height: 90vh; overflow-y: scroll">
+  <% @conversation.messages.each do |message| %>
+    <b><%= message.user.username %></b>
+    <p><%= message.local(current_user.lang).content %></p>
+  <% end %>
+</div>
 <%= form_with url: send_msg_path do |form| %>
     <% @conversation.users.each do |user| %>
         <%= form.hidden_field :usernames, multiple: true, value: user.username %>
@@ -11,4 +13,11 @@
     <%= form.submit %>
 <% end %>
 <%= link_to 'Back', conversations_path %>
+
+
+<script>
+    $(document).ready(function() {
+        $('#messages').scrollTop($('#messages')[0].scrollHeight - $('#messages')[0].clientHeight);
+    });
+</script>
 
