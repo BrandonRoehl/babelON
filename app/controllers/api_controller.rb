@@ -23,7 +23,7 @@ class ApiController < ApplicationController
         end
 
         # Create the message
-        msg = Message.create!(user: current_user, conv)
+        msg = Message.create!(user: current_user, conversation: conv)
         # Create the localization
         local = Localization.create!(content: params[:content], lang: current_user.lang, message: msg)
         # Set the base msg for show
