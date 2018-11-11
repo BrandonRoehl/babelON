@@ -1,5 +1,3 @@
-require 'google/cloud/translate'
-
 class Message < ApplicationRecord
     belongs_to :user
     belongs_to :conversation
@@ -9,10 +7,12 @@ class Message < ApplicationRecord
     @@translate = Google::Cloud::Translate.new
 
     def local(lang)
-        unless self.localizations.find_by(lang: lang)
-            translation = @@translate.translate self.base.content, from: self.base.lang, to: lang
-            localization = Localization.new(content: translation, lang: lang, msg: self)
+        localization = self.localizations.find_by(lang: lang)
+        if localization.nil?
+            translation = @@translate.translate(self.base.content, from: self.base.lang, to: lang)
+            localization = Localization.new(content: translation, lang: lang, message: self)
             localization.save!
         end
+        return localization
     end
 end

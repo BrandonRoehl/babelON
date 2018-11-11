@@ -1,4 +1,7 @@
 <p id="notice"><%= notice %></p>
-
-<%= link_to 'Edit', edit_conversation_path(@conversation) %> |
+<p>hi</p>
+<% @conversation.messages.each do |message| %>
+  <b><%= message.user.username %></b>
+  <p><%= message.local(current_user.lang).content %></p>
+<% end %>
 <%= link_to 'Back', conversations_path %>
