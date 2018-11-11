@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(version: 2018_11_10_211643) do
     t.integer "conversation_id"
     t.datetime "time_sent"
     t.datetime "time_read"
-    t.integer "base", null: false
+    t.integer "base_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["conversation_id"], name: "index_messages_on_conversation_id"
