@@ -1,10 +1,8 @@
-<p id="notice"><%= notice %></p>
-<p>hi</p>
 <% @conversation.messages.each do |message| %>
   <b><%= message.user.username %></b>
   <p><%= message.local(current_user.lang).content %></p>
 <% end %>
-<%= form_with url: send_msg_path, local: true do |form| %>
+<%= form_with url: send_msg_path do |form| %>
     <% @conversation.users.each do |user| %>
         <%= form.hidden_field :usernames, multiple: true, value: user.username %>
     <% end %>

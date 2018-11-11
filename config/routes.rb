@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     resources :localizations
     resources :messages
     resources :conversations
-
+    mount ActionCable.server, at: '/cable'
     post :send_msg, to: 'api#send_msg', as: :send_msg
     get :send_msg,  to: 'api#make_msg'
 

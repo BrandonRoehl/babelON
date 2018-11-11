@@ -17,7 +17,8 @@ App.cable.subscriptions.create(
         },
 
         received: function (data) {
-            console.log(data);
+            // window.location.reload();
+            Turbolinks.visit(window.location.href);
         }
     }
 );
