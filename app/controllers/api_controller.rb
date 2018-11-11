@@ -36,10 +36,10 @@ class ApiController < ApplicationController
 
         respond_to do |format|
             format.html do
-                redirect_to conv, notice: 'Localization was successfully updated.'
+                redirect_to conv, notice: 'Message was sent.'
             end
             format.json do
-                render :show, status: :ok, location: @localization
+                render :show, status: :ok, message: msg
             end
         end
     end
