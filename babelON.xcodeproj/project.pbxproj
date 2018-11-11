@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		55466FFF21980B4800EA3E76 /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55466FF921980B4800EA3E76 /* User+CoreDataClass.swift */; };
+		5546700021980B4800EA3E76 /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55466FFA21980B4800EA3E76 /* User+CoreDataProperties.swift */; };
+		5546700121980B4800EA3E76 /* Message+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55466FFB21980B4800EA3E76 /* Message+CoreDataClass.swift */; };
+		5546700221980B4800EA3E76 /* Message+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55466FFC21980B4800EA3E76 /* Message+CoreDataProperties.swift */; };
+		5546700321980B4800EA3E76 /* Conversation+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55466FFD21980B4800EA3E76 /* Conversation+CoreDataClass.swift */; };
+		5546700421980B4800EA3E76 /* Conversation+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55466FFE21980B4800EA3E76 /* Conversation+CoreDataProperties.swift */; };
 		AFF562ED21975899003AF622 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF562EC21975899003AF622 /* AppDelegate.swift */; };
 		AFF562F021975899003AF622 /* babelON.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AFF562EE21975899003AF622 /* babelON.xcdatamodeld */; };
 		AFF562F221975899003AF622 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF562F121975899003AF622 /* MasterViewController.swift */; };
@@ -42,6 +48,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		55466FF921980B4800EA3E76 /* User+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
+		55466FFA21980B4800EA3E76 /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		55466FFB21980B4800EA3E76 /* Message+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Message+CoreDataClass.swift"; sourceTree = "<group>"; };
+		55466FFC21980B4800EA3E76 /* Message+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Message+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		55466FFD21980B4800EA3E76 /* Conversation+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Conversation+CoreDataClass.swift"; sourceTree = "<group>"; };
+		55466FFE21980B4800EA3E76 /* Conversation+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Conversation+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		AFF562E921975899003AF622 /* babelON.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = babelON.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AFF562EC21975899003AF622 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AFF562EF21975899003AF622 /* babelON.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = babelON.xcdatamodel; sourceTree = "<group>"; };
@@ -90,6 +102,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		55466FF821980A2800EA3E76 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				55466FF921980B4800EA3E76 /* User+CoreDataClass.swift */,
+				55466FFA21980B4800EA3E76 /* User+CoreDataProperties.swift */,
+				55466FFB21980B4800EA3E76 /* Message+CoreDataClass.swift */,
+				55466FFC21980B4800EA3E76 /* Message+CoreDataProperties.swift */,
+				55466FFD21980B4800EA3E76 /* Conversation+CoreDataClass.swift */,
+				55466FFE21980B4800EA3E76 /* Conversation+CoreDataProperties.swift */,
+				AFF562EE21975899003AF622 /* babelON.xcdatamodeld */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
 		AFF562E021975899003AF622 = {
 			isa = PBXGroup;
 			children = (
@@ -113,6 +139,7 @@
 		AFF562EB21975899003AF622 /* babelON */ = {
 			isa = PBXGroup;
 			children = (
+				55466FF821980A2800EA3E76 /* CoreData */,
 				B36826C4219784A700BA84DE /* Helpers.swift */,
 				AFF562EC21975899003AF622 /* AppDelegate.swift */,
 				AFF562F121975899003AF622 /* MasterViewController.swift */,
@@ -121,7 +148,6 @@
 				AFF562F82197589C003AF622 /* Assets.xcassets */,
 				AFF562FA2197589C003AF622 /* LaunchScreen.storyboard */,
 				AFF562FD2197589C003AF622 /* Info.plist */,
-				AFF562EE21975899003AF622 /* babelON.xcdatamodeld */,
 				AFF56322219765A0003AF622 /* Conversation.swift */,
 				AFF56324219765B8003AF622 /* User.swift */,
 				AFF5632821976C5F003AF622 /* Message.swift */,
@@ -282,12 +308,18 @@
 			files = (
 				B36826CF2197899E00BA84DE /* LoginViewController.swift in Sources */,
 				AFF56323219765A0003AF622 /* Conversation.swift in Sources */,
+				5546700021980B4800EA3E76 /* User+CoreDataProperties.swift in Sources */,
 				AFF562ED21975899003AF622 /* AppDelegate.swift in Sources */,
+				5546700221980B4800EA3E76 /* Message+CoreDataProperties.swift in Sources */,
 				AFF562F021975899003AF622 /* babelON.xcdatamodeld in Sources */,
+				5546700421980B4800EA3E76 /* Conversation+CoreDataProperties.swift in Sources */,
 				B36826C6219784A700BA84DE /* Helpers.swift in Sources */,
 				B36826D12197A1D100BA84DE /* WebPortalViewController.swift in Sources */,
+				5546700321980B4800EA3E76 /* Conversation+CoreDataClass.swift in Sources */,
 				AFF5632921976C5F003AF622 /* Message.swift in Sources */,
+				5546700121980B4800EA3E76 /* Message+CoreDataClass.swift in Sources */,
 				AFF562F221975899003AF622 /* MasterViewController.swift in Sources */,
+				55466FFF21980B4800EA3E76 /* User+CoreDataClass.swift in Sources */,
 				AFF56325219765B8003AF622 /* User.swift in Sources */,
 				AFF562F421975899003AF622 /* DetailViewController.swift in Sources */,
 			);
@@ -465,7 +497,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2NE7PNK89E;
+				DEVELOPMENT_TEAM = V7JGZY6Z4Z;
 				INFOPLIST_FILE = babelON/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.3.1;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -484,7 +516,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2NE7PNK89E;
+				DEVELOPMENT_TEAM = V7JGZY6Z4Z;
 				INFOPLIST_FILE = babelON/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.3.1;
 				LD_RUNPATH_SEARCH_PATHS = (

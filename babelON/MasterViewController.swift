@@ -57,21 +57,21 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
 
     @objc
     func insertNewObject(_ sender: Any) {
-        let context = self.fetchedResultsController.managedObjectContext
-        let newEvent = Event(context: context)
-             
-        // If appropriate, configure the new managed object.
-        newEvent.timestamp = Date()
-
-        // Save the context.
-        do {
-            try context.save()
-        } catch {
-            // Replace this implementation with code to handle the error appropriately.
-            // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-            let nserror = error as NSError
-            fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
-        }
+//        let context = self.fetchedResultsController.managedObjectContext
+//        let newEvent = Conversation(context: context)
+//             
+//        // If appropriate, configure the new managed object.
+////        newEvent.timestamp = Date()
+//
+//        // Save the context.
+//        do {
+//            try context.save()
+//        } catch {
+//            // Replace this implementation with code to handle the error appropriately.
+//            // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+//            let nserror = error as NSError
+//            fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
+//        }
     }
 
     // MARK: - Segues
@@ -127,18 +127,18 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         }
     }
 
-    func configureCell(_ cell: UITableViewCell, withEvent event: Event) {
-        cell.textLabel!.text = event.timestamp!.description
+    func configureCell(_ cell: UITableViewCell, withEvent conversation: Conversation) {
+        cell.textLabel!.text = conversation.description
     }
 
     // MARK: - Fetched results controller
 
-    var fetchedResultsController: NSFetchedResultsController<Event> {
+    var fetchedResultsController: NSFetchedResultsController<Conversation> {
         if _fetchedResultsController != nil {
             return _fetchedResultsController!
         }
         
-        let fetchRequest: NSFetchRequest<Event> = Event.fetchRequest()
+        let fetchRequest: NSFetchRequest<Conversation> = Conversation.fetchRequest()
         
         // Set the batch size to a suitable number.
         fetchRequest.fetchBatchSize = 20
@@ -165,7 +165,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         
         return _fetchedResultsController!
     }    
-    var _fetchedResultsController: NSFetchedResultsController<Event>? = nil
+    var _fetchedResultsController: NSFetchedResultsController<Conversation>? = nil
 
     func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         tableView.beginUpdates()
@@ -189,9 +189,9 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
             case .delete:
                 tableView.deleteRows(at: [indexPath!], with: .fade)
             case .update:
-                configureCell(tableView.cellForRow(at: indexPath!)!, withEvent: anObject as! Event)
+                configureCell(tableView.cellForRow(at: indexPath!)!, withEvent: anObject as! Conversation)
             case .move:
-                configureCell(tableView.cellForRow(at: indexPath!)!, withEvent: anObject as! Event)
+                configureCell(tableView.cellForRow(at: indexPath!)!, withEvent: anObject as! Conversation)
                 tableView.moveRow(at: indexPath!, to: newIndexPath!)
         }
     }
