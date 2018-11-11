@@ -6,7 +6,7 @@
     <thead>
         <tr>
             <th>Peope</th>
-            <th colspan="2"></th>
+            <th colspan="1"></th>
         </tr>
     </thead>
 
@@ -18,7 +18,6 @@
                     <%= conversation.display_users(current_user) %>
                 <% end %>
             </td>
-            <td><%= link_to 'Edit', edit_conversation_path(conversation) %></td>
             <td><%= link_to 'Destroy', conversation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </tr>
         <% end %>
