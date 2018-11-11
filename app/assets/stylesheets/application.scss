@@ -27,17 +27,17 @@
     width: 100%;
     background-color: white;
 
-    .textarea {
+    .text_field {
         resize: none;
     }
 
     .form_body {
         position: relative;
-    }
 
-    #send_button {
-        position: absolute;
-        right: 1em;
-        top: 1em;
+        #send_msg {
+            position: absolute;
+            right: 1em;
+            top: 1em;
+        }
     }
 }

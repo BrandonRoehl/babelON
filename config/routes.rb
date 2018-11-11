@@ -5,9 +5,9 @@ Rails.application.routes.draw do
         registrations: 'users/registrations'
     }
 
-    resources :conversations
-    resources :localizations
-    resources :messages
+    resources :conversations, except: [:edit, :new, :create]
+    resources :localizations, except: [:edit, :new, :create]
+    resources :messages, except: [:edit, :new, :create]
 
     root to: 'conversations#index'
 

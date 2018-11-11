@@ -5,20 +5,17 @@
 <div id="send_form">
     <%= form_with url: send_msg_path do |form| %>
         <div class="form_body">
-        <% @conversation.users.each do |user| %>
-            <%= form.hidden_field :usernames, multiple: true, value: user.username %>
-        <% end %>
-        <%= form.text_area :content, rows: 2 %>
-        <br />
-        <%= form.submit "send", id: 'send_button' %>
-    <div>
+            <% @conversation.users.each do |user| %>
+                <%= form.hidden_field :usernames, multiple: true, value: user.username %>
+            <% end %>
+            <%= form.text_field :content, rows: 2 %>
+            <%# form.submit "send", id: 'send_button' %>
+        <div>
     <% end %>
 </div>
 
 <script>
-    $(document).ready(function() {
-        window.scrollTo(0,document.body.scrollHeight);
-        $('#messages').scrollTop($('#messages')[0].scrollHeight - $('#messages')[0].clientHeight);
-        registerChannel("<%= @conversation.id %>")
-    });
+    window.scrollTo(0,document.body.scrollHeight);
+    $('#messages').scrollTop($('#messages')[0].scrollHeight - $('#messages')[0].clientHeight);
+    registerChannel("<%= @conversation.id %>")
 </script>
