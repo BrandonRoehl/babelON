@@ -13,6 +13,7 @@
 		5546700221980B4800EA3E76 /* Message+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55466FFC21980B4800EA3E76 /* Message+CoreDataProperties.swift */; };
 		5546700321980B4800EA3E76 /* Conversation+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55466FFD21980B4800EA3E76 /* Conversation+CoreDataClass.swift */; };
 		5546700421980B4800EA3E76 /* Conversation+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55466FFE21980B4800EA3E76 /* Conversation+CoreDataProperties.swift */; };
+		AF1584FB21982E4B0042250B /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF1584FA21982E4B0042250B /* TableViewController.swift */; };
 		AFF562ED21975899003AF622 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF562EC21975899003AF622 /* AppDelegate.swift */; };
 		AFF562F021975899003AF622 /* babelON.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AFF562EE21975899003AF622 /* babelON.xcdatamodeld */; };
 		AFF562F221975899003AF622 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF562F121975899003AF622 /* MasterViewController.swift */; };
@@ -54,6 +55,7 @@
 		55466FFC21980B4800EA3E76 /* Message+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Message+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		55466FFD21980B4800EA3E76 /* Conversation+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Conversation+CoreDataClass.swift"; sourceTree = "<group>"; };
 		55466FFE21980B4800EA3E76 /* Conversation+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Conversation+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		AF1584FA21982E4B0042250B /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		AFF562E921975899003AF622 /* babelON.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = babelON.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AFF562EC21975899003AF622 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AFF562EF21975899003AF622 /* babelON.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = babelON.xcdatamodel; sourceTree = "<group>"; };
@@ -153,6 +155,7 @@
 				AFF5632821976C5F003AF622 /* Message.swift */,
 				B36826CE2197899E00BA84DE /* LoginViewController.swift */,
 				B36826D02197A1D100BA84DE /* WebPortalViewController.swift */,
+				AF1584FA21982E4B0042250B /* TableViewController.swift */,
 			);
 			path = babelON;
 			sourceTree = "<group>";
@@ -308,6 +311,7 @@
 			files = (
 				B36826CF2197899E00BA84DE /* LoginViewController.swift in Sources */,
 				AFF56323219765A0003AF622 /* Conversation.swift in Sources */,
+				AF1584FB21982E4B0042250B /* TableViewController.swift in Sources */,
 				5546700021980B4800EA3E76 /* User+CoreDataProperties.swift in Sources */,
 				AFF562ED21975899003AF622 /* AppDelegate.swift in Sources */,
 				5546700221980B4800EA3E76 /* Message+CoreDataProperties.swift in Sources */,

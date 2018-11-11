@@ -87,6 +87,7 @@ func loadData() {
     let msg = Message(context: moc)
     msg.content = "This is a test msg"
     msg.date = Date() as NSDate
+    msg.sentUser = otherUser
 
     mainConv.addToMessages(msg)
 }

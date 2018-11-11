@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="H1p-Uh-vWS">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="H1p-Uh-vWS">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -110,6 +110,26 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <toolbar key="tableFooterView" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="omg-hg-oqa">
+                            <rect key="frame" x="0.0" y="116" width="375" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                            <items>
+                                <barButtonItem style="plain" id="NjG-hI-DRi">
+                                    <textField key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" id="W9s-eB-fa6">
+                                        <rect key="frame" x="16" y="7" width="287" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </barButtonItem>
+                                <barButtonItem title="Send" id="Rf3-0p-1FW">
+                                    <connections>
+                                        <action selector="sendTapped" destination="gcq-B4-84Z" id="dbu-ho-G7u"/>
+                                    </connections>
+                                </barButtonItem>
+                            </items>
+                        </toolbar>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="away" id="aCj-Qs-hqL">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
@@ -151,33 +171,6 @@
                                     </constraints>
                                 </tableViewCellContentView>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="send" id="Wl3-Mf-Xmj">
-                                <rect key="frame" x="0.0" y="116" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Wl3-Mf-Xmj" id="17F-TR-vzD">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yh0-J9-kUr">
-                                            <rect key="frame" x="16" y="7" width="299" height="30"/>
-                                            <nil key="textColor"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <textInputTraits key="textInputTraits"/>
-                                        </textField>
-                                        <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kni-Q2-5gv">
-                                            <rect key="frame" x="323" y="7" width="36" height="30"/>
-                                            <state key="normal" title="Send"/>
-                                        </button>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstItem="kni-Q2-5gv" firstAttribute="leading" secondItem="yh0-J9-kUr" secondAttribute="trailing" constant="8" id="HR2-AB-Y9o"/>
-                                        <constraint firstItem="yh0-J9-kUr" firstAttribute="centerY" secondItem="17F-TR-vzD" secondAttribute="centerY" id="hCh-3A-M2p"/>
-                                        <constraint firstItem="yh0-J9-kUr" firstAttribute="leading" secondItem="17F-TR-vzD" secondAttribute="leading" constant="16" id="oiI-X7-Jmp"/>
-                                        <constraint firstItem="kni-Q2-5gv" firstAttribute="centerY" secondItem="17F-TR-vzD" secondAttribute="centerY" id="uNW-XE-sVZ"/>
-                                        <constraint firstAttribute="trailing" secondItem="kni-Q2-5gv" secondAttribute="trailing" constant="16" id="vCl-ua-ZFL"/>
-                                    </constraints>
-                                </tableViewCellContentView>
-                            </tableViewCell>
                         </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="gcq-B4-84Z" id="zW9-J2-w7v"/>
@@ -185,6 +178,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="y9A-Mu-Xsg"/>
+                    <connections>
+                        <outlet property="messageTextField" destination="W9s-eB-fa6" id="eMG-SW-YJO"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fQ4-Bi-tkO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
