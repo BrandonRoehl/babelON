@@ -7,3 +7,6 @@ env_variables:
 
 manual_scaling:
   instances: 1
+
+beta_settings:
+  cloud_sql_instances: babelon-madhacks:us-central1:babelon-madhacks-postgres
