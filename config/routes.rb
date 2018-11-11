@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     resources :messages
     resources :conversations
 
-    post :send_msg, to: 'api#send_msg'
+    post :send_msg, to: 'api#send_msg', as: :send_msg
     get :send_msg,  to: 'api#make_msg'
 
     # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

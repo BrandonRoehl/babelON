@@ -19,7 +19,7 @@ class ApiController < ApplicationController
         # If it is nil create a new conversation
         if conv.nil?
             conv = Conversation.create!
-            User.where(usernames: usernames).each do |user|
+            User.where(username: usernames).each do |user|
                 user.conversations << conv
             end
         end
@@ -33,6 +33,15 @@ class ApiController < ApplicationController
         # Save the msg to persist the data
         local.save!
         msg.save!
+
+        respond_to do |format|
+            format.html do
+                redirect_to conv, notice: 'Localization was successfully updated.'
+            end
+            format.json do
+                render :show, status: :ok, location: @localization
+            end
+        end
     end
 
     def get_conversations
