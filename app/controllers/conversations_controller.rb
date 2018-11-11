@@ -1,10 +1,11 @@
 class ConversationsController < ApplicationController
-  before_action :set_conversation, only: [:show, :edit, :update, :destroy]
+  before_action :set_conversation, only: [:show, :destroy]
+  before_action :check_current_user, only: [:show, :destroy]
 
   # GET /conversations
   # GET /conversations.json
   def index
-    @conversations = Conversation.all
+    @conversations = current_user.conversations
   end
 
   # GET /conversations/1
@@ -12,30 +13,6 @@ class ConversationsController < ApplicationController
   def show
   end
 
-  # GET /conversations/new
-  def new
-    @conversation = Conversation.new
-  end
-
-  # GET /conversations/1/edit
-  def edit
-  end
-
-  # POST /conversations
-  # POST /conversations.json
-  def create
-    @conversation = Conversation.new(conversation_params)
-
-    respond_to do |format|
-      if @conversation.save
-        format.html { redirect_to @conversation, notice: 'Conversation was successfully created.' }
-        format.json { render :show, status: :created, location: @conversation }
-      else
-        format.html { render :new }
-        format.json { render json: @conversation.errors, status: :unprocessable_entity }
-      end
-    end
-  end
 
   # PATCH/PUT /conversations/1
   # PATCH/PUT /conversations/1.json
@@ -70,5 +47,12 @@ class ConversationsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def conversation_params
       params.fetch(:conversation, {})
+    end
+
+    def check_current_user
+      unless @conversation.users.include?(current_user)
+        # TODO change message
+        redirect_to :root, alert: "YOU CANT VIEW THIS DICK!!!!!"
+      end
     end
 end
