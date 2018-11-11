@@ -1,6 +1,4 @@
 class MessagesController < ApplicationController
-  @@translate = Google::Cloud::Translate.new
-
   before_action :set_message, only: [:show, :edit, :update, :destroy]
 
   # GET /messages
@@ -67,11 +65,6 @@ class MessagesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_message
       @message = Message.find(params[:id])
-      unless @message.localizations.find_by(lang: current_user.lang)
-        translation = @@translate.translate @message.base.content, from: @message.base.lang, to: current_user.lang
-        localization = Localization.new(content: translation, lang: current_user.lang, msg: @message)
-        localization.save!
-      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
