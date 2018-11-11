@@ -42,6 +42,7 @@ gem "pg", "~> 1.1"
 
 # google cloud platform
 gem "appengine", "~> 0.4.6"
+gem "google-cloud-translate"
 
 gem 'nokogiri', '~> 1.8.5'
 
