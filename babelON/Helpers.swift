@@ -81,7 +81,7 @@ func loadData() {
     mainUser.firstName = "main"
     let otherUser = User(context: moc)
     otherUser.firstName = "test"
-    
+
     mainConv.addToUsers([mainUser, otherUser])
 
     let msg = Message(context: moc)
