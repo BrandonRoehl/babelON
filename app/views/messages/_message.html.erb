@@ -1,2 +1,2 @@
-<b><%= message.user.first_name %> <%= message.user.last_name %></b>
+<b <%= 'class=from_me' if message.user == current_user %>><%= message.user.first_name %> <%= message.user.last_name %></b>
 <p><%= message.local(current_user.lang).content.html_safe %></p>
