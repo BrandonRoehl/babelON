@@ -10,7 +10,9 @@ class Message < ApplicationRecord
 
     def local(lang)
         unless self.localizations.find_by(lang: lang)
-            translation = @@translate.translate self.base.content, from: self.base.lang, to: lang
+            return nil if self.base.nil?
+
+            translation = @@translate.translate(self.base.content, from: self.base.lang, to: lang)
             localization = Localization.new(content: translation, lang: lang, msg: self)
             localization.save!
         end

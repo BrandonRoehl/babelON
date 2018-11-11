@@ -37,4 +37,7 @@ class ApiController < ApplicationController
 
     def get_conversations
     end
+
+    def make_msg
+    end
 end

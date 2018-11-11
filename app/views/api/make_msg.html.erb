@@ -1,0 +1,9 @@
+<%= form_with url:  do |form| %>
+    <%= form.label :usernames, 'Username' %>
+    <%= form.text_field :usernames, multiple: true %>
+    <%# form.text_field :usernames, multiple: true %>
+    <%= form.label :content %>
+    <%= form.text_field :content %>
+
+    <%= form.submit %>
+<% end %>
