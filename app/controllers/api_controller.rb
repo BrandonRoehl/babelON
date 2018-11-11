@@ -7,17 +7,19 @@ class ApiController < ApplicationController
         # users = User.where(username: params[:usernames])
         # username[]
 
+        usernames = params[:usernames]
+        usernames.push(current_user.username) unless usernames.include?(current_user.username)
         # Find a conversation with the correct users
         conv = current_user.conversations.find do |conversation|
             conversation.users.collect do |user|
                 user.username
-            end.sort == params[:usernames].sort
+            end.sort == usernames.sort
         end
 
         # If it is nil create a new conversation
         if conv.nil?
             conv = Conversation.create!
-            User.where(usernames: params[:usernames]).each do |user|
+            User.where(usernames: usernames).each do |user|
                 user.conversations << conv
             end
         end
