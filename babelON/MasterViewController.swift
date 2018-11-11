@@ -11,7 +11,7 @@ import CoreData
 
 class MasterViewController: UITableViewController, NSFetchedResultsControllerDelegate {
 	
-		private var loggedIn = false
+    private var loggedIn = false
     var detailViewController: DetailViewController? = nil
     var managedObjectContext: NSManagedObjectContext? = nil
 	
@@ -35,24 +35,24 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     }
 	
 		override func viewDidAppear(_ animated: Bool) {
-			if UserDefaults.standard.string(forKey: "username") == nil {
-				self.performSegue(withIdentifier: "loginSegue", sender: self)
-				
-			} else if !self.loggedIn {
-				let username = UserDefaults.standard.string(forKey: "username")
-				let password = UserDefaults.standard.string(forKey: "password")
-				
-				DispatchQueue.global(qos: .background).async {
-					if !login(username: username, password: password) {
-						DispatchQueue.main.async {
-							self.performSegue(withIdentifier: "loginSegue", sender: self)
-						}
-					} else {
-						self.loggedIn = true
-					}
-				}
-				
-			}
+            if UserDefaults.standard.string(forKey: "username") == nil {
+                self.performSegue(withIdentifier: "loginSegue", sender: self)
+                
+            } else if !self.loggedIn {
+                let username = UserDefaults.standard.string(forKey: "username")
+                let password = UserDefaults.standard.string(forKey: "password")
+                
+                DispatchQueue.global(qos: .background).async {
+                    if !login(username: username, password: password) {
+                        DispatchQueue.main.async {
+                            self.performSegue(withIdentifier: "loginSegue", sender: self)
+                        }
+                    } else {
+                        self.loggedIn = true
+                    }
+                }
+                
+            }
 		}
 
     @objc

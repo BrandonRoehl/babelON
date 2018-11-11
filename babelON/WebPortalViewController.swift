@@ -20,7 +20,7 @@ class WebPortalViewController: UIViewController, WKNavigationDelegate {
 		self.progressView.isHidden = true
 		self.webView.navigationDelegate = self
 		self.webView.addObserver(self, forKeyPath: #keyPath(WKWebView.estimatedProgress), options: .new, context: nil)
-		self.webView.load(URLRequest(url: URL(string: "http://localhost:3000/users/sign_up")!))
+		self.webView.load(URLRequest(url: URL(string: "\(SITE_URL)/users/sign_up")!))
 	}
 	
 	override func didReceiveMemoryWarning() {
@@ -35,7 +35,7 @@ class WebPortalViewController: UIViewController, WKNavigationDelegate {
 	func webView(_ webView: WKWebView, didCommit navigation: WKNavigation!) {
 		progressView.isHidden = false
 		print(webView.url!.absoluteString)
-		if webView.url?.absoluteString == "http://localhost:3000/users/sign_in" {
+		if webView.url?.absoluteString == "\(SITE_URL)/users/sign_in" {
 			self.dismiss(animated: true, completion: nil)
 		}
 	}

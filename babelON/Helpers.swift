@@ -8,8 +8,10 @@
 
 import Foundation
 
+let SITE_URL = "https://babelon-chat.com"
+
 func login(username: String?, password: String?) -> Bool {
-	let url = URL(string: "http://127.0.0.1:3000/users/sign_in")!
+	let url = URL(string: "\(SITE_URL)/users/sign_in")!
 	let semaphore = DispatchSemaphore(value: 0)
 	var request = URLRequest(url: url)
 	request.httpMethod = "POST"
