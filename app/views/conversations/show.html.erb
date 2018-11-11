@@ -1,6 +1,5 @@
 <div id="messages" data-conversation-id="<%= @conversation.id %>">
     <%= render @conversation.messages %>
-    <%= link_to 'Back', conversations_path %>
 </div>
 <div id="send_form">
     <%= form_with url: send_msg_path do |form| %>
@@ -15,7 +14,9 @@
 </div>
 
 <script>
-    window.scrollTo(0,document.body.scrollHeight);
-    $('#messages').scrollTop($('#messages')[0].scrollHeight - $('#messages')[0].clientHeight);
-    registerChannel("<%= @conversation.id %>")
+    $(document).on('ready turbolinks:load', function() {
+        window.scrollTo(0,document.body.scrollHeight);
+        $('#messages').scrollTop($('#messages')[0].scrollHeight - $('#messages')[0].clientHeight);
+        registerChannel("<%= @conversation.id %>")
+    });
 </script>
