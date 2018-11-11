@@ -42,6 +42,8 @@ class ApiController < ApplicationController
                 render :show, status: :ok, message: msg
             end
         end
+
+      ChatChannel.broadcast_to(conv, msg)
     end
 
     def get_conversations

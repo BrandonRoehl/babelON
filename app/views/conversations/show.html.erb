@@ -1,3 +1,4 @@
+<p id="notice"><%= notice %></p>
 <p>hi</p>
 <% @conversation.messages.each do |message| %>
   <b><%= message.user.username %></b>
@@ -12,3 +13,4 @@
     <%= form.submit %>
 <% end %>
 <%= link_to 'Back', conversations_path %>
+
