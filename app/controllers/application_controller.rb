@@ -13,6 +13,8 @@ class ApplicationController < ActionController::Base
         end
     end
 
+    protect_from_forgery unless: -> { request.format.json? }
+
     # No layout for ajax
     layout proc{|c| c.request.xhr? ? false : "application"}
 
