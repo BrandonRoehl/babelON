@@ -8,9 +8,9 @@
             <% @conversation.users.each do |user| %>
                 <%= form.hidden_field :usernames, multiple: true, value: user.username %>
             <% end %>
-            <%= form.text_field :content, placeholder: "[enter] to send message", rows: 2, %>
+            <%= form.text_field :content, placeholder: "[enter] to send message", rows: 2 %>
             <%# form.submit "send", id: 'send_button' %>
-        <div>
+        </div>
     <% end %>
 </div>
 
