@@ -2,4 +2,5 @@ class Message < ApplicationRecord
     belongs_to :user
     belongs_to :conversation
     belongs_to :base, class_name: 'Localization', optional: true
+    has_many :localizations
 end
