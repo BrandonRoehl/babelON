@@ -7,10 +7,14 @@ class ApiController < ApplicationController
         # users = User.where(username: params[:usernames])
         # username[]
 
-        usernames = params[:usernames]
-        if usernames.size == 1
-            usernames = usernames.first.split(',')
+        usernames = nil
+        if params[:usernames].size == 1
+            usernames = params[:usernames].first.split(',')
+        else
+            usernames = params[:usernames]
         end
+        logger.info usernames
+
         usernames.push(current_user.username) unless usernames.include?(current_user.username)
         # Find a conversation with the correct users
         conv = current_user.conversations.find do |conversation|
