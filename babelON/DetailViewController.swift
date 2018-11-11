@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DetailViewController: UIViewController {
+class DetailViewController: UITableViewController {
 
     @IBOutlet weak var detailDescriptionLabel: UILabel!
     weak var conversation:Conversation?
@@ -39,6 +39,8 @@ class DetailViewController: UIViewController {
         }
     }
 
+    
+    
 
 }
 

@@ -59,4 +59,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 			}
 		}
 	}
+    
+    func buildCD(){
+        //TODO: build up DB with the api call to get all the user data
+    }
+    
 }

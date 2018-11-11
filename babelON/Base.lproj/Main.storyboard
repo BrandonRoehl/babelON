@@ -102,10 +102,11 @@
             </objects>
             <point key="canvasLocation" x="-45" y="129"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Detail View Controller-->
         <scene sceneID="Rd6-5b-iJc">
             <objects>
-                <tableViewController id="gcq-B4-84Z" sceneMemberID="viewController">
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fQ4-Bi-tkO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tableViewController id="gcq-B4-84Z" customClass="DetailViewController" customModule="babelON" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="MNd-9d-7ok">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -151,6 +152,33 @@
                                     </constraints>
                                 </tableViewCellContentView>
                             </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="send" id="Wl3-Mf-Xmj">
+                                <rect key="frame" x="0.0" y="116" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Wl3-Mf-Xmj" id="17F-TR-vzD">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yh0-J9-kUr">
+                                            <rect key="frame" x="16" y="7" width="299" height="30"/>
+                                            <nil key="textColor"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                        </textField>
+                                        <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kni-Q2-5gv">
+                                            <rect key="frame" x="323" y="7" width="36" height="30"/>
+                                            <state key="normal" title="Send"/>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="kni-Q2-5gv" firstAttribute="leading" secondItem="yh0-J9-kUr" secondAttribute="trailing" constant="8" id="HR2-AB-Y9o"/>
+                                        <constraint firstItem="yh0-J9-kUr" firstAttribute="centerY" secondItem="17F-TR-vzD" secondAttribute="centerY" id="hCh-3A-M2p"/>
+                                        <constraint firstItem="yh0-J9-kUr" firstAttribute="leading" secondItem="17F-TR-vzD" secondAttribute="leading" constant="16" id="oiI-X7-Jmp"/>
+                                        <constraint firstItem="kni-Q2-5gv" firstAttribute="centerY" secondItem="17F-TR-vzD" secondAttribute="centerY" id="uNW-XE-sVZ"/>
+                                        <constraint firstAttribute="trailing" secondItem="kni-Q2-5gv" secondAttribute="trailing" constant="16" id="vCl-ua-ZFL"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                            </tableViewCell>
                         </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="gcq-B4-84Z" id="zW9-J2-w7v"/>
@@ -159,9 +187,8 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="y9A-Mu-Xsg"/>
                 </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="fQ4-Bi-tkO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="708" y="128"/>
+            <point key="canvasLocation" x="708" y="127.28635682158921"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="eSR-rh-QWg">
