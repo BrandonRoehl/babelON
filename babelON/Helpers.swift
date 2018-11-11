@@ -18,7 +18,6 @@ func login(username: String?, password: String?) -> Bool {
 		"user": [
 			"email": username,
 			"password": password,
-			"remember_me": "1"
 		],
 		"commit": "darwin"
 	]
