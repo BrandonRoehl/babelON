@@ -8,14 +8,14 @@ class ApiController < ApplicationController
         # username[]
 
         # Find a conversation with the correct users
-        conv = current_user.conversations.find do |conv|
-            return conv.users.collect do |user|
+        conv = current_user.conversations.find do |conversation|
+            return conversation.users.collect do |user|
                 return user.username
             end.sort == params[:usernames].sort
         end
 
         # If it is nil create a new conversation
-        if conv.nil? do
+        if conv.nil?
             conv = Conversation.create!
             User.where(usernames: params[:usernames]).each do |user|
                 user.conversations << conv
@@ -33,6 +33,5 @@ class ApiController < ApplicationController
     end
 
     def get_conversations
-
     end
 end
