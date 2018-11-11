@@ -21,6 +21,7 @@
 		AFF5632921976C5F003AF622 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF5632821976C5F003AF622 /* Message.swift */; };
 		B36826C6219784A700BA84DE /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36826C4219784A700BA84DE /* Helpers.swift */; };
 		B36826CF2197899E00BA84DE /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36826CE2197899E00BA84DE /* LoginViewController.swift */; };
+		B36826D12197A1D100BA84DE /* WebPortalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36826D02197A1D100BA84DE /* WebPortalViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		AFF5632821976C5F003AF622 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		B36826C4219784A700BA84DE /* Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		B36826CE2197899E00BA84DE /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		B36826D02197A1D100BA84DE /* WebPortalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebPortalViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +126,7 @@
 				AFF56324219765B8003AF622 /* User.swift */,
 				AFF5632821976C5F003AF622 /* Message.swift */,
 				B36826CE2197899E00BA84DE /* LoginViewController.swift */,
+				B36826D02197A1D100BA84DE /* WebPortalViewController.swift */,
 			);
 			path = babelON;
 			sourceTree = "<group>";
@@ -282,6 +285,7 @@
 				AFF562ED21975899003AF622 /* AppDelegate.swift in Sources */,
 				AFF562F021975899003AF622 /* babelON.xcdatamodeld in Sources */,
 				B36826C6219784A700BA84DE /* Helpers.swift in Sources */,
+				B36826D12197A1D100BA84DE /* WebPortalViewController.swift in Sources */,
 				AFF5632921976C5F003AF622 /* Message.swift in Sources */,
 				AFF562F221975899003AF622 /* MasterViewController.swift in Sources */,
 				AFF56325219765B8003AF622 /* User.swift in Sources */,

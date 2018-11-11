@@ -13,7 +13,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 	
 	@IBOutlet var email: UITextField!
 	@IBOutlet var password: UITextField!
-	
 	@IBOutlet var loadingIndicator: UIActivityIndicatorView!
 	
 	private var initial: Bool = false

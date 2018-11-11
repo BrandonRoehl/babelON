@@ -4,6 +4,7 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -153,6 +154,9 @@
                                 <rect key="frame" x="159" y="382" width="57" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Register"/>
+                                <connections>
+                                    <segue destination="Ft4-pa-FgP" kind="show" id="Or3-fI-QvX"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iPZ-8q-oof" userLabel="password">
                                 <rect key="frame" x="139" y="256" width="97" height="30"/>
@@ -174,6 +178,70 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vMy-cf-fHz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1466" y="-630"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="ypm-Ca-WYw">
+            <objects>
+                <navigationController id="Ft4-pa-FgP" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="s3I-Mc-NrN">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BKr-36-BvI" kind="relationship" relationship="rootViewController" id="ssy-NR-8Df"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="va7-Hm-Lod" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2468" y="-630"/>
+        </scene>
+        <!--Web Portal View Controller-->
+        <scene sceneID="q7Q-VT-yWT">
+            <objects>
+                <viewController id="BKr-36-BvI" customClass="WebPortalViewController" customModule="babelON" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cCg-ej-djz">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cwh-eZ-HsP">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progressViewStyle="bar" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="jRm-6J-Z0p">
+                                <rect key="frame" x="0.0" y="64" width="375" height="2.5"/>
+                            </progressView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="LSH-fQ-Hfl" firstAttribute="bottom" secondItem="Cwh-eZ-HsP" secondAttribute="bottom" id="A1a-Rc-FUp"/>
+                            <constraint firstItem="jRm-6J-Z0p" firstAttribute="top" secondItem="LSH-fQ-Hfl" secondAttribute="top" id="Aw1-jd-nWd"/>
+                            <constraint firstItem="jRm-6J-Z0p" firstAttribute="leading" secondItem="cCg-ej-djz" secondAttribute="leading" id="CuW-ho-hd3"/>
+                            <constraint firstItem="LSH-fQ-Hfl" firstAttribute="trailing" secondItem="Cwh-eZ-HsP" secondAttribute="trailing" id="EwA-IB-kMQ"/>
+                            <constraint firstItem="Cwh-eZ-HsP" firstAttribute="top" secondItem="LSH-fQ-Hfl" secondAttribute="top" id="LYH-EI-wdG"/>
+                            <constraint firstItem="Cwh-eZ-HsP" firstAttribute="leading" secondItem="LSH-fQ-Hfl" secondAttribute="leading" id="ZIg-jC-OJm"/>
+                            <constraint firstAttribute="trailing" secondItem="jRm-6J-Z0p" secondAttribute="trailing" id="cEu-lR-aae"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="LSH-fQ-Hfl"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="eZA-qe-H1f">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="Zdg-73-aYx">
+                            <connections>
+                                <action selector="done:" destination="BKr-36-BvI" id="NxJ-TM-7vi"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="progressView" destination="jRm-6J-Z0p" id="X1y-3q-Rbu"/>
+                        <outlet property="webView" destination="Cwh-eZ-HsP" id="XDb-zn-pJl"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SHZ-dr-j8k" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3286" y="-630"/>
         </scene>
     </scenes>
 </document>
