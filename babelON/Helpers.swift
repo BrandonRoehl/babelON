@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import UIKit
+import CoreData
 
 let SITE_URL = "https://babelon-chat.com"
 
@@ -68,3 +70,54 @@ func retrieveJson(url: URL, session: URLSession) -> Any? {
 	return json
 }
 
+func loadData() {
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    let moc: NSManagedObjectContext = appDelegate.persistentContainer.viewContext
+
+    // create testing data
+    let mainConv = Conversation(context: moc)
+
+    let mainUser = User(context: moc)
+    mainUser.firstName = "main"
+    let otherUser = User(context: moc)
+    otherUser.firstName = "test"
+    
+    mainConv.addToUsers([mainUser, otherUser])
+
+    let msg = Message(context: moc)
+    msg.content = "This is a test msg"
+    msg.date = Date() as NSDate
+
+    mainConv.addToMessages(msg)
+}
+
+
+
+//static func create() -> CoreImage {
+//    let appDelegate = NSApp.delegate as! AppDelegate
+//    let moc: NSManagedObjectContext = appDelegate.persistentContainer.viewContext
+//    return CoreImage(context: moc)
+//}
+//func delete() {
+//    let appDelegate = NSApp.delegate as! AppDelegate
+//    let moc: NSManagedObjectContext = appDelegate.persistentContainer.viewContext
+//    // Delete
+//    moc.delete(self)
+//}
+//
+//static func getImagesFrom(predicate: NSPredicate?) -> [CoreImage] {
+//    var fetchResults: [CoreImage] = []
+//    let appDelegate = NSApp.delegate as! AppDelegate
+//    let moc: NSManagedObjectContext = appDelegate.persistentContainer.viewContext
+//
+//    let fetchRequest: NSFetchRequest<CoreImage> = CoreImage.fetchRequest()
+//    fetchRequest.sortDescriptors = [NSSortDescriptor(key: "index", ascending: true)]
+//    fetchRequest.predicate = predicate
+//
+//    do {
+//        fetchResults = try moc.fetch(fetchRequest)
+//    } catch {
+//        print("Error: Can't fetch \(fetchRequest)")
+//    }
+//    return fetchResults
+//}
