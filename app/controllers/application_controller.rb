@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
     before_action :authenticate_user!
+    skip_before_action :verify_authenticity_token
 
     rescue_from ActiveRecord::RecordNotFound do |message|
         logger.error message
@@ -12,8 +13,6 @@ class ApplicationController < ActionController::Base
             end
         end
     end
-
-    protect_from_forgery unless: -> { request.format.json? }
 
     # No layout for ajax
     layout proc{|c| c.request.xhr? ? false : "application"}
