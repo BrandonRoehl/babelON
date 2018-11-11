@@ -9,7 +9,7 @@ class ApiController < ApplicationController
 
         usernames = params[:usernames]
         if usernames.size == 1
-            usernames = usernames..split(',')
+            usernames = usernames.split(',')
         end
         usernames.push(current_user.username) unless usernames.include?(current_user.username)
         # Find a conversation with the correct users
