@@ -78,18 +78,57 @@ func loadData() {
     let mainConv = Conversation(context: moc)
 
     let mainUser = User(context: moc)
-    mainUser.firstName = "main"
+    mainUser.username = "main"
     let otherUser = User(context: moc)
-    otherUser.firstName = "test"
+    otherUser.username = "test"
 
     mainConv.addToUsers([mainUser, otherUser])
 
+    let AConv = Conversation(context: moc)
+    
+    let BUser = User(context: moc)
+    mainUser.username = "connor"
+    let CUser = User(context: moc)
+    otherUser.username = "quinn"
+    
+    AConv.addToUsers([BUser, CUser])
+
+    
     let msg = Message(context: moc)
     msg.content = "This is a test msg"
     msg.date = Date() as NSDate
     msg.sentUser = otherUser
-
+    
     mainConv.addToMessages(msg)
+    mainConv.addToMessages(msg)
+    mainConv.addToMessages(msg)
+    mainConv.addToMessages(msg)
+    mainConv.addToMessages(msg)
+    mainConv.addToMessages(msg)
+    mainConv.addToMessages(msg)
+    mainConv.addToMessages(msg)
+    mainConv.addToMessages(msg)
+    mainConv.addToMessages(msg)
+    mainConv.addToMessages(msg)
+    mainConv.addToMessages(msg)
+    mainConv.addToMessages(msg)
+    mainConv.addToMessages(msg)
+    mainConv.addToMessages(msg)
+    mainConv.addToMessages(msg)
+    mainConv.addToMessages(msg)
+    mainConv.addToMessages(msg)
+    mainConv.addToMessages(msg)
+    mainConv.addToMessages(msg)
+    mainConv.addToMessages(msg)
+    mainConv.addToMessages(msg)
+    mainConv.addToMessages(msg)
+    mainConv.addToMessages(msg)
+    mainConv.addToMessages(msg)
+    mainConv.addToMessages(msg)
+    mainConv.addToMessages(msg)
+    mainConv.addToMessages(msg)
+
+
 }
 
 
@@ -106,19 +145,20 @@ func loadData() {
 //    moc.delete(self)
 //}
 //
-//static func getImagesFrom(predicate: NSPredicate?) -> [CoreImage] {
-//    var fetchResults: [CoreImage] = []
-//    let appDelegate = NSApp.delegate as! AppDelegate
-//    let moc: NSManagedObjectContext = appDelegate.persistentContainer.viewContext
-//
-//    let fetchRequest: NSFetchRequest<CoreImage> = CoreImage.fetchRequest()
-//    fetchRequest.sortDescriptors = [NSSortDescriptor(key: "index", ascending: true)]
-//    fetchRequest.predicate = predicate
-//
-//    do {
-//        fetchResults = try moc.fetch(fetchRequest)
-//    } catch {
-//        print("Error: Can't fetch \(fetchRequest)")
-//    }
-//    return fetchResults
-//}
+func getAllConversations() -> [Conversation] {
+    var fetchResults: [Conversation] = []
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    let moc: NSManagedObjectContext = appDelegate.persistentContainer.viewContext
+
+    let fetchRequest: NSFetchRequest<Conversation> = Conversation.fetchRequest()
+    fetchRequest.sortDescriptors = []
+    fetchRequest.predicate = nil
+
+    do {
+        fetchResults = try moc.fetch(fetchRequest)
+    } catch {
+        print("Error: Can't fetch \(fetchRequest)")
+    }
+    return fetchResults
+}
+
