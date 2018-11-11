@@ -9,8 +9,8 @@ class ApiController < ApplicationController
 
         # Find a conversation with the correct users
         conv = current_user.conversations.find do |conversation|
-            return conversation.users.collect do |user|
-                return user.username
+            conversation.users.collect do |user|
+                user.username
             end.sort == params[:usernames].sort
         end
 
@@ -23,12 +23,13 @@ class ApiController < ApplicationController
         end
 
         # Create the message
-        msg = Message.create!(user: current_user, conversation: conv)
+        msg = Message.new(user: current_user, conversation: conv, time_sent: Time.now)
         # Create the localization
-        local = Localization.create!(content: params[:content], lang: current_user.lang, message: msg)
+        local = Localization.new(content: params[:content], lang: current_user.lang, message: msg)
         # Set the base msg for show
         msg.base = local
         # Save the msg to persist the data
+        local.save!
         msg.save!
     end
 
