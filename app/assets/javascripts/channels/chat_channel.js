@@ -1,27 +1,31 @@
-
-App.cable.subscriptions.create(
-    {
-        channel: "ChatChannel", id: "1"
-    },
-
-    {
-        connected: function () {
-            console.log("connected");
-        },
-
-        disconnected: function () {
-            console.log("disconnected");
-        },
-
-        rejected: function () {
-            console.log("rejected");
-        },
-
-        received: function (data) {
-            $("#messages").load(location.href+" #messages>*","", function () {
-                $('#messages').scrollTop($('#messages')[0].scrollHeight - $('#messages')[0].clientHeight);
-            });
-            console.log("received");
-        }
+registerChannel = function (id) {
+    if (App.cable.subscriptions['subscriptions'].length > 1) {
+        App.cable.subscriptions.remove(App.cable.subscriptions['subscriptions'][1]);
     }
-);
+    App.cable.subscriptions.create(
+        {
+            channel: "ChatChannel", id: $("#messages").data("conversation-id")
+        },
+
+        {
+            connected: function () {
+                console.log("connected");
+            },
+
+            disconnected: function () {
+                console.log("disconnected");
+            },
+
+            rejected: function () {
+                console.log("rejected");
+            },
+
+            received: function (data) {
+                $("#messages").load(location.href + " #messages>*", "", function () {
+                    $('#messages').scrollTop($('#messages')[0].scrollHeight - $('#messages')[0].clientHeight);
+                });
+                console.log("received");
+            }
+        }
+    );
+};
