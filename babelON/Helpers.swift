@@ -9,7 +9,7 @@
 import Foundation
 
 func login(username: String?, password: String?) -> Bool {
-	let url = URL(string: "https://127.0.0.1:3000/users/sign_in")!
+	let url = URL(string: "http://127.0.0.1:3000/users/sign_in")!
 	let semaphore = DispatchSemaphore(value: 0)
 	var request = URLRequest(url: url)
 	request.httpMethod = "POST"

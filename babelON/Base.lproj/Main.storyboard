@@ -163,14 +163,14 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" textContentType="password"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="WY4-2f-svN"/>
                     </view>
                     <connections>
-                        <outlet property="email" destination="iPZ-8q-oof" id="o66-9m-v4g"/>
+                        <outlet property="email" destination="gPb-ZD-UAN" id="BJM-nz-gd8"/>
                         <outlet property="loadingIndicator" destination="iLE-hB-UeD" id="ekw-dv-9O3"/>
                         <outlet property="password" destination="iPZ-8q-oof" id="hfs-cV-App"/>
                     </connections>
