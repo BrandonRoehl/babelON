@@ -15,3 +15,29 @@
  *= require foundation_and_overrides
 
  */
+
+ #messages {
+     padding-bottom: 10em;
+ }
+
+#send_form {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: white;
+
+    .textarea {
+        resize: none;
+    }
+
+    .form_body {
+        position: relative;
+    }
+
+    #send_button {
+        position: absolute;
+        right: 1em;
+        top: 1em;
+    }
+}

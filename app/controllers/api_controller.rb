@@ -8,6 +8,9 @@ class ApiController < ApplicationController
         # username[]
 
         usernames = params[:usernames]
+        if usernames.size == 1
+            usernames = usernames..split(',')
+        end
         usernames.push(current_user.username) unless usernames.include?(current_user.username)
         # Find a conversation with the correct users
         conv = current_user.conversations.find do |conversation|
@@ -34,6 +37,8 @@ class ApiController < ApplicationController
         local.save!
         msg.save!
 
+        ChatChannel.broadcast_to(conv, msg)
+
         respond_to do |format|
             format.html do
                 redirect_to conv, notice: 'Message was sent.'
@@ -42,8 +47,6 @@ class ApiController < ApplicationController
                 render :show, status: :ok, message: msg
             end
         end
-
-      ChatChannel.broadcast_to(conv, msg)
     end
 
     def get_conversations

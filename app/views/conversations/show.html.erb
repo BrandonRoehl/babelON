@@ -1,19 +1,19 @@
-<div id="messages" style="max-height: 90vh; overflow-y: scroll" data-conversation-id="<%= @conversation.id %>">
-  <% @conversation.messages.each do |message| %>
-    <b><%= message.user.username %></b>
-    <p><%= message.local(current_user.lang).content %></p>
-  <% end %>
+<div id="messages" data-conversation-id="<%= @conversation.id %>">
+    <%= render @conversation.messages %>
+    <%= link_to 'Back', conversations_path %>
 </div>
-<%= form_with url: send_msg_path do |form| %>
-    <% @conversation.users.each do |user| %>
-        <%= form.hidden_field :usernames, multiple: true, value: user.username %>
+<div id="send_form">
+    <%= form_with url: send_msg_path do |form| %>
+        <div class="form_body">
+        <% @conversation.users.each do |user| %>
+            <%= form.hidden_field :usernames, multiple: true, value: user.username %>
+        <% end %>
+        <%= form.text_area :content, rows: 2 %>
+        <br />
+        <%= form.submit "send", id: 'send_button' %>
+    <div>
     <% end %>
-    <%= form.text_area :content %>
-    <br />
-    <%= form.submit %>
-<% end %>
-<%= link_to 'Back', conversations_path %>
-
+</div>
 
 <script>
     $(document).ready(function() {
@@ -22,4 +22,3 @@
         registerChannel("<%= @conversation.id %>")
     });
 </script>
-

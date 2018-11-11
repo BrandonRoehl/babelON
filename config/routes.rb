@@ -1,14 +1,16 @@
 Rails.application.routes.draw do
+    mount ActionCable.server, at: '/cable'
+
     devise_for :users, controllers: {
         registrations: 'users/registrations'
     }
 
-    root to: 'application#splash'
-
+    resources :conversations
     resources :localizations
     resources :messages
-    resources :conversations
-    mount ActionCable.server, at: '/cable'
+
+    root to: 'conversations#index'
+
     post :send_msg, to: 'api#send_msg', as: :send_msg
     get :send_msg,  to: 'api#make_msg'
 
