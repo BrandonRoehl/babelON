@@ -12,7 +12,7 @@ import Foundation
 class DetailViewController: UITableViewController {
 
     @IBOutlet weak var detailDescriptionLabel: UILabel!
-    weak var conversation: Conversation?
+    weak var conversation: Conversation!
 
     func configureView() {
         // Update the user interface for the detail item.
@@ -28,8 +28,12 @@ class DetailViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        navigationItem.title = conversation?.description
+        navigationItem.title = conversation.description
         configureView()
+        DispatchQueue.main.async {
+            loadMessages(conv: self.conversation)
+            self.tableView.reloadData()
+        }
     }
 
     var detailItem: Conversation? {
@@ -41,24 +45,34 @@ class DetailViewController: UITableViewController {
     }
 
     @IBOutlet weak var messageTextField: UITextField!
-    @IBAction func sendTapped(){
+    @IBAction func sendTapped() {
         var message = messageTextField.text
+        print(message)
+        messageTextField.text = ""
         var users = conversation?.users?.allObjects.map { ($0 as? User)?.username }
         let SITE_URL = "https://babelon.herokuapp.com"
-
-        let url = URL(string: "\(SITE_URL)/users/sign_in")!
+        print(users)
+        let url = URL(string: "\(SITE_URL)/send_msg")!
         let semaphore = DispatchSemaphore(value: 0)
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         let params: [String: Any] = [
-                "content": message,
-                "usernames": users,
-           
+                "content": message ?? "",
+                "usernames": users as! [String],
         ]
-        //api call to send a message
-        //reload table view
+        request.httpBody = try? JSONSerialization.data(withJSONObject: params, options: [])
+        URLSession.shared.dataTask(with: request) { (data, response, error) in
+            // Print the result
+            print(response as Any)
+            semaphore.signal()
+            }.resume()
+        semaphore.wait()
         
+        DispatchQueue.main.async {
+            loadMessages(conv: self.conversation)
+            self.tableView.reloadData()
+        }
     }
     
 
@@ -71,14 +85,14 @@ class DetailViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return conversation?.messages?.count ?? 0
+        return conversation.messages?.count ?? 0
         
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //let cell = tableView.dequeueReusableCell(withIdentifier: "away", for: indexPath)
         
-        var mess = (conversation?.messages?.allObjects[indexPath.row] as? Message)
+        var mess = (conversation.messages?.allObjects[indexPath.row] as? Message)
         var user = UserDefaults.standard.string(forKey: "username")
         let cell = tableView.dequeueReusableCell(withIdentifier: mess?.sentUser?.username == user ? "home" : "away", for: indexPath)
 

@@ -44,12 +44,12 @@ func login(username: String?, password: String?) -> Bool {
 		UserDefaults.standard.set(nil, forKey: "username")
 		UserDefaults.standard.set(nil, forKey: "password")
 	}
-    loadData()
+    
 	return loggedIn
 }
 
 // Retrive JSON from a URL as a NSDictionary using the shared session
-func retrieveJson(url: URL, session: URLSession) -> Any? {
+func retrieveJson(url: URL, session: URLSession = URLSession.shared) -> Any? {
 	// init helper variables
 	let semaphore = DispatchSemaphore(value: 0)
 	var json: Any?
@@ -71,12 +71,44 @@ func retrieveJson(url: URL, session: URLSession) -> Any? {
 	return json
 }
 
-func loadData() {
+func loadConversations() {
+    DispatchQueue.main.async {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let moc: NSManagedObjectContext = appDelegate.persistentContainer.viewContext
+
+        let json = retrieveJson(url: URL(string: "\(SITE_URL)/conversations.json")!)
+        for conv in (json as? [[String : Any]] ?? []) {
+            let mainConv = Conversation(context: moc)
+            var users = conv["usernames"] as? [String] ?? []
+            for user in users{
+                let tempUser = User(context: moc)
+                tempUser.username = user
+                mainConv.addToUsers(tempUser)
+            }
+            mainConv.url = NSURL(string: conv["url"] as? String ?? "")
+        }
+    }
+
+}
+
+func loadMessages(conv: Conversation) {
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     let moc: NSManagedObjectContext = appDelegate.persistentContainer.viewContext
-
+    print("before stuff")
+    let json = retrieveJson(url: conv.url! as URL) as! [String : Any]
+    for message in (json["messages"] as! [[String : Any]]){
+        var content = message["content"] as? String ?? ""
+        var msg = Message(context: moc)
+        msg.content = content
+        var user = User(context: moc)
+        user.username = message["username"] as? String ?? ""
+        msg.sentUser = user
+        msg.conversation = conv
+        conv.addToMessages(msg)
+        
+    }
     
-
+    print("loaded")
 }
 
 

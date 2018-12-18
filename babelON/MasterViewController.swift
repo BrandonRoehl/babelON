@@ -17,8 +17,8 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
 	
 
     override func viewDidLoad() {
+
         super.viewDidLoad()
-        loadData()
         self.clearsSelectionOnViewWillAppear = true
 
         // Do any additional setup after loading the view, typically from a nib.
@@ -50,6 +50,10 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
                     }
                 } else {
                     self.loggedIn = true
+                    loadConversations()
+                    DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                    }
                 }
             }
             
