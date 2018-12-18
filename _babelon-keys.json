@@ -1,0 +1,12 @@
+{
+ "type": "service_account",
+ "project_id": "babelon-madhacks",
+ "private_key_id": "a98071b675a5876c01dfb8e5ae1a97735c8be475",
+ "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDHukXEqxDHjK6k\nny38Wmyfxb7wZVyi+3jh5+L5PUFAfUgATtHk1wQumi6QwEvNwiYDLTHzzc9sLJDU\ngtmfE2nRq9lu/Q78qOnNEMSWzTyqX9E+OHQcNZ/3STSCOZznuYR/pGf9SnzjIdQH\nQ7NUYhqsjwdRcZnjO4MplDyi/9OOg9sngqOBUUb/mDNIUxSopABz4vzE7EltwKr0\no8uIJiX8SO48FcIf8yD/jLgYzQuri9jOL0X8bi2Pq8TgPvGbMI+sz+fORjyTal7+\nEBjc6msYGj/c/HZc71kx/ESF4pEnUs0cOc7PRCNSwEh/xEPKpW+cmTuLacYJJlzQ\n+1XC7+UBAgMBAAECggEAGmlhEYVXpjPN4nokUCM7CxPQ0KRu0CS2ExWhl7kIeHk4\nvMWvjvX6GRmNf9nWDGMYuMHQwb9dJx5rlpapJZahHzd8/ObdBP9nT5VgkdqZI6Sh\nHHvFqvdSbJaTKYdp3uDTCzgYAlBH3JdcHQvQWp/QjDIr0xLVOU3k5eoy7JEtDkLY\neJau8oBaHVfPt+rIYEXeYU79mWdeHAAOvn9AWeAIrcbHvWbDmNH2eQ5pYfAlcwan\nHhd5462BiHrTQ6DQFFIX73x7U/qbroSb6yXAtcyt7lIUbGWvv4DUqNbUKo//pNUR\nJD/iS+z6kMKSp99H8LKnHJ/PWrHMGW0yCEKc2P/fCwKBgQD3/X1yXTZ4yXUHIzCx\nwQARkSXScrhCKuhXN+W4X9nzm+b4w+BcAWFgWlHgcyqd5IW8hWt+otEiKxQO7X/E\nGcjUaavNBPoAeq++veAxL7FtBuR3kr6aiXnp6M4Qoq7ZGNp7Bwhz/2Ky9xLU7Ljb\nL8VaNUJtXbzbLWef6CQBftBFFwKBgQDOLbkN1iCqY79yZZpsnx1ko0c0NHzqYDd3\nEHiS8IQ+2PoZYjd3eJpASHOAAleFaxhrojTH5Fi6sVbV+ExAAfvGBuJEguh90TTY\neH+L4fAzk8HsUEOscJbacs0jJGABs8sxcpRl0ilpN6aOfG8upmhWh2+AKmvz0R35\nFPQRRK2lpwKBgQCtZ4FKcMdgGm5MeVzZTn0/y2DJERKqodoo8psdG1kJsOAG3uCJ\nNSXj/AP4kE8ibOLe+eQ6fpsB62FxNrz6YJU/gkxxZaNyplcxZw/XFORZulITEndZ\nE/w9hV5h33+nqmtLT5WnltJrFb0DSivQiEzVURyL4Nnn4I3vEKHsscHsLQKBgQCk\nKsX5nXEfGxN6bCpcqQlHc7cje1Onb3tag7PuFDLItA3YHltZ9p6j5syItdSoeFDW\niy6Jp2l7Je+lqfJU2P93e025DZ8/Z1AzuSad5AZVmyZDGtn3uSJ0yApNHA6R7G4z\nbi95L7EnhVdKhwwkUf4sP+TpYV3Zor3B8gwwn8XAawKBgArzA0pbsFFrrnjc08EN\nslOS2LKzALfgFRj6hXiHAkGnXPD+O8mN7zpP4a8jApWw1nFHPp0KYv/B3H+L+bJ4\nvPliHJ/LKLghOeRBvJOiVtUq8f1PXosEvscxlczkP2M0gEbdqEaWSE5UU91euKsw\nhSOs7Iu/xOCGSjKreS2XqmJP\n-----END PRIVATE KEY-----\n",
+ "client_email": "babelon-madhacks-account@babelon-madhacks.iam.gserviceaccount.com",
+ "client_id": "115402758606882176261",
+ "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+ "token_uri": "https://oauth2.googleapis.com/token",
+ "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+ "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/babelon-madhacks-account%40babelon-madhacks.iam.gserviceaccount.com"
+}
