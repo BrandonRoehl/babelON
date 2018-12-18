@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import CoreData
 
-let SITE_URL = "https://babelon-chat.com"
+let SITE_URL = "https://babelon.herokuapp.com"
 
 func login(username: String?, password: String?) -> Bool {
 	let url = URL(string: "\(SITE_URL)/users/sign_in")!
@@ -44,6 +44,7 @@ func login(username: String?, password: String?) -> Bool {
 		UserDefaults.standard.set(nil, forKey: "username")
 		UserDefaults.standard.set(nil, forKey: "password")
 	}
+    loadData()
 	return loggedIn
 }
 
@@ -74,60 +75,7 @@ func loadData() {
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     let moc: NSManagedObjectContext = appDelegate.persistentContainer.viewContext
 
-    // create testing data
-    let mainConv = Conversation(context: moc)
-
-    let mainUser = User(context: moc)
-    mainUser.username = "main"
-    let otherUser = User(context: moc)
-    otherUser.username = "test"
-
-    mainConv.addToUsers([mainUser, otherUser])
-
-    let AConv = Conversation(context: moc)
     
-    let BUser = User(context: moc)
-    mainUser.username = "connor"
-    let CUser = User(context: moc)
-    otherUser.username = "quinn"
-    
-    AConv.addToUsers([BUser, CUser])
-
-    
-    let msg = Message(context: moc)
-    msg.content = "This is a test msg"
-    msg.date = Date() as NSDate
-    msg.sentUser = otherUser
-    
-    mainConv.addToMessages(msg)
-    mainConv.addToMessages(msg)
-    mainConv.addToMessages(msg)
-    mainConv.addToMessages(msg)
-    mainConv.addToMessages(msg)
-    mainConv.addToMessages(msg)
-    mainConv.addToMessages(msg)
-    mainConv.addToMessages(msg)
-    mainConv.addToMessages(msg)
-    mainConv.addToMessages(msg)
-    mainConv.addToMessages(msg)
-    mainConv.addToMessages(msg)
-    mainConv.addToMessages(msg)
-    mainConv.addToMessages(msg)
-    mainConv.addToMessages(msg)
-    mainConv.addToMessages(msg)
-    mainConv.addToMessages(msg)
-    mainConv.addToMessages(msg)
-    mainConv.addToMessages(msg)
-    mainConv.addToMessages(msg)
-    mainConv.addToMessages(msg)
-    mainConv.addToMessages(msg)
-    mainConv.addToMessages(msg)
-    mainConv.addToMessages(msg)
-    mainConv.addToMessages(msg)
-    mainConv.addToMessages(msg)
-    mainConv.addToMessages(msg)
-    mainConv.addToMessages(msg)
-
 
 }
 

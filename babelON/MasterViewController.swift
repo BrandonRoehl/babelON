@@ -19,6 +19,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     override func viewDidLoad() {
         super.viewDidLoad()
         loadData()
+        self.clearsSelectionOnViewWillAppear = true
 
         // Do any additional setup after loading the view, typically from a nib.
         navigationItem.leftBarButtonItem = editButtonItem
@@ -31,30 +32,28 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         }
     }
 
-    override func viewWillAppear(_ animated: Bool) {
-//        clearsSelectionOnViewWillAppear = splitViewController!.isCollapsed
-//        super.viewWillAppear(animated)
-//    }
-//
-//        override func viewDidAppear(_ animated: Bool) {
-//            if UserDefaults.standard.string(forKey: "username") == nil {
-//                self.performSegue(withIdentifier: "loginSegue", sender: self)
-//
-//            } else if !self.loggedIn {
-//                let username = UserDefaults.standard.string(forKey: "username")
-//                let password = UserDefaults.standard.string(forKey: "password")
-//
-//                DispatchQueue.global(qos: .background).async {
-//                    if !login(username: username, password: password) {
-//                        DispatchQueue.main.async {
-//                            self.performSegue(withIdentifier: "loginSegue", sender: self)
-//                        }
-//                    } else {
-//                        self.loggedIn = true
-//                    }
-//                }
-//
-//            }
+    
+   
+
+    override func viewDidAppear(_ animated: Bool) {
+        if UserDefaults.standard.string(forKey: "username") == nil {
+            self.performSegue(withIdentifier: "loginSegue", sender: self)
+            
+        } else if !self.loggedIn {
+            let username = UserDefaults.standard.string(forKey: "username")
+            let password = UserDefaults.standard.string(forKey: "password")
+            
+            DispatchQueue.global(qos: .background).async {
+                if !login(username: username, password: password) {
+                    DispatchQueue.main.async {
+                        self.performSegue(withIdentifier: "loginSegue", sender: self)
+                    }
+                } else {
+                    self.loggedIn = true
+                }
+            }
+            
+        }
         
     }
 
@@ -64,6 +63,9 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         //add to db
         //go to detail view for that convo
         //send a message in the convo like normal
+        
+        
+        
     }
 
     // MARK: - Segues
@@ -77,6 +79,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
                 controller.conversation = getAllConversations()[indexPath.row]
                 controller.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
                 controller.navigationItem.leftItemsSupplementBackButton = true
+                
             }
         }
     }
