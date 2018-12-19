@@ -78,8 +78,8 @@ func loadConversations() {
 
         let json = retrieveJson(url: URL(string: "\(SITE_URL)/conversations.json")!)
         for conv in (json as? [[String : Any]] ?? []) {
-            let mainConv = Conversation(context: moc)
-            var users = conv["usernames"] as? [String] ?? []
+            let mainConv = Conversation.findOrCreateBy(id: conv["id"] as? Int ?? 0)
+            let users = conv["usernames"] as? [String] ?? []
             for user in users{
                 let tempUser = User(context: moc)
                 tempUser.username = user
@@ -92,16 +92,14 @@ func loadConversations() {
 }
 
 func loadMessages(conv: Conversation) {
-    let appDelegate = UIApplication.shared.delegate as! AppDelegate
-    let moc: NSManagedObjectContext = appDelegate.persistentContainer.viewContext
     print("before stuff")
     let json = retrieveJson(url: conv.url! as URL) as! [String : Any]
-    for message in (json["messages"] as! [[String : Any]]){
-        var content = message["content"] as? String ?? ""
-        var msg = Message(context: moc)
+    for message in (json["messages"] as! [[String : Any]]) {
+        let username = message["username"] as? String ?? ""
+        let content = message["content"] as? String ?? ""
+        let msg = Message.findOrCreateBy(id: message["id"] as? Int ?? 0)
         msg.content = content
-        var user = User(context: moc)
-        user.username = message["username"] as? String ?? ""
+        let user = User.findOrCreateBy(username: username)
         msg.sentUser = user
         msg.conversation = conv
         conv.addToMessages(msg)
