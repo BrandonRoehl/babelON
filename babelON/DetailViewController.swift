@@ -72,6 +72,8 @@ class DetailViewController: UITableViewController {
         DispatchQueue.main.async {
             loadMessages(conv: self.conversation)
             self.tableView.reloadData()
+            let indexPath = IndexPath(row: (self.conversation.messages?.count)! - 1, section: 0)
+            self.tableView.scrollToRow(at: indexPath, at: .bottom, animated: true)
         }
     }
     

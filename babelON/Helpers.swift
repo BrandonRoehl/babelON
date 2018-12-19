@@ -94,7 +94,6 @@ func loadConversations() {
 func loadMessages(conv: Conversation) {
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     let moc: NSManagedObjectContext = appDelegate.persistentContainer.viewContext
-    print("before stuff")
     let json = retrieveJson(url: conv.url! as URL) as! [String : Any]
     for message in (json["messages"] as! [[String : Any]]){
         var content = message["content"] as? String ?? ""
@@ -108,8 +107,8 @@ func loadMessages(conv: Conversation) {
         
     }
     
-    print("loaded")
 }
+
 
 
 
