@@ -72,23 +72,18 @@ func retrieveJson(url: URL, session: URLSession = URLSession.shared) -> Any? {
 }
 
 func loadConversations() {
-    DispatchQueue.main.async {
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let moc: NSManagedObjectContext = appDelegate.persistentContainer.viewContext
-
-        let json = retrieveJson(url: URL(string: "\(SITE_URL)/conversations.json")!)
-        for conv in (json as? [[String : Any]] ?? []) {
-            let mainConv = Conversation.findOrCreateBy(id: conv["id"] as? Int ?? 0)
-            let users = conv["usernames"] as? [String] ?? []
-            for user in users{
-                let tempUser = User(context: moc)
-                tempUser.username = user
-                mainConv.addToUsers(tempUser)
-            }
-            mainConv.url = NSURL(string: conv["url"] as? String ?? "")
+    let json = retrieveJson(url: URL(string: "\(SITE_URL)/conversations.json")!)
+    for conv in (json as? [[String : Any]] ?? []) {
+        let id = conv["id"] as! Int32
+        let mainConv = Conversation.findOrCreateBy(id: id)
+        let users = conv["usernames"] as? [String] ?? []
+        for user in users{
+            let tempUser = User.findOrCreateBy(username: user)
+            tempUser.username = user
+            mainConv.addToUsers(tempUser)
         }
+        mainConv.url = NSURL(string: conv["url"] as? String ?? "")
     }
-
 }
 
 func loadMessages(conv: Conversation) {
@@ -96,15 +91,13 @@ func loadMessages(conv: Conversation) {
     for message in (json["messages"] as! [[String : Any]]) {
         let username = message["username"] as? String ?? ""
         let content = message["content"] as? String ?? ""
-        let msg = Message.findOrCreateBy(id: message["id"] as? Int ?? 0)
+        let msg = Message.findOrCreateBy(id: message["id"] as! Int32)
         msg.content = content
         let user = User.findOrCreateBy(username: username)
         msg.sentUser = user
         msg.conversation = conv
         conv.addToMessages(msg)
-        
     }
-    
 }
 
 

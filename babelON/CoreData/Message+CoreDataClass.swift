@@ -19,7 +19,7 @@ public class Message: NSManagedObject {
         let moc: NSManagedObjectContext = appDelegate.persistentContainer.viewContext
 
         let fetchRequest: NSFetchRequest<Message> = Message.fetchRequest()
-        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "index", ascending: true)]
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "id", ascending: true)]
         fetchRequest.predicate = predicate
 
         do {
@@ -30,7 +30,7 @@ public class Message: NSManagedObject {
         return fetchResults
     }
 
-    static func findOrCreateBy(id: Int) -> Message {
+    static func findOrCreateBy(id: Int32) -> Message {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let moc: NSManagedObjectContext = appDelegate.persistentContainer.viewContext
         let predicate = NSPredicate(format: "id == %ld", id)

@@ -22,5 +22,6 @@ extension Message {
     @NSManaged public var transContent: String?
     @NSManaged public var sentUser: User?
     @NSManaged public var conversation: Conversation?
+    @NSManaged public var id:Int32
 
 }

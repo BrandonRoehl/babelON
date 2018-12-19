@@ -33,6 +33,8 @@ class DetailViewController: UITableViewController {
         DispatchQueue.main.async {
             loadMessages(conv: self.conversation)
             self.tableView.reloadData()
+            let indexPath = IndexPath(row: (self.conversation.messages?.count)! - 1, section: 0)
+            self.tableView.scrollToRow(at: indexPath, at: .bottom, animated: true)
         }
     }
 
@@ -46,34 +48,34 @@ class DetailViewController: UITableViewController {
 
     @IBOutlet weak var messageTextField: UITextField!
     @IBAction func sendTapped() {
-        var message = messageTextField.text
-        print(message)
-        messageTextField.text = ""
-        var users = conversation?.users?.allObjects.map { ($0 as? User)?.username }
-        let SITE_URL = "https://babelon.herokuapp.com"
-        print(users)
-        let url = URL(string: "\(SITE_URL)/send_msg")!
-        let semaphore = DispatchSemaphore(value: 0)
-        var request = URLRequest(url: url)
-        request.httpMethod = "POST"
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        let params: [String: Any] = [
-                "content": message ?? "",
+        let message = messageTextField.text
+        if (!(message?.isEmpty)!){
+            messageTextField.text = ""
+            let users = conversation?.users?.allObjects.map { ($0 as? User)?.username }
+            let SITE_URL = "https://babelon.herokuapp.com"
+            let url = URL(string: "\(SITE_URL)/send_msg")!
+            let semaphore = DispatchSemaphore(value: 0)
+            var request = URLRequest(url: url)
+            request.httpMethod = "POST"
+            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+            let params: [String: Any] = [
+                "content": message!,
                 "usernames": users as! [String],
-        ]
-        request.httpBody = try? JSONSerialization.data(withJSONObject: params, options: [])
-        URLSession.shared.dataTask(with: request) { (data, response, error) in
-            // Print the result
-            print(response as Any)
-            semaphore.signal()
-            }.resume()
-        semaphore.wait()
-        
-        DispatchQueue.main.async {
-            loadMessages(conv: self.conversation)
-            self.tableView.reloadData()
-            let indexPath = IndexPath(row: (self.conversation.messages?.count)! - 1, section: 0)
-            self.tableView.scrollToRow(at: indexPath, at: .bottom, animated: true)
+                ]
+            request.httpBody = try? JSONSerialization.data(withJSONObject: params, options: [])
+            URLSession.shared.dataTask(with: request) { (data, response, error) in
+                // Print the result
+                print(response as Any)
+                semaphore.signal()
+                }.resume()
+            semaphore.wait()
+            
+            DispatchQueue.main.async {
+                loadMessages(conv: self.conversation)
+                self.tableView.reloadData()
+                let indexPath = IndexPath(row: (self.conversation.messages?.count)! - 1, section: 0)
+                self.tableView.scrollToRow(at: indexPath, at: .bottom, animated: true)
+            }
         }
     }
     
@@ -94,8 +96,8 @@ class DetailViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //let cell = tableView.dequeueReusableCell(withIdentifier: "away", for: indexPath)
         
-        var mess = (conversation.messages?.allObjects[indexPath.row] as? Message)
-        var user = UserDefaults.standard.string(forKey: "username")
+        let mess = (conversation.messages?.allObjects[indexPath.row] as? Message)
+        let user = UserDefaults.standard.string(forKey: "username")
         let cell = tableView.dequeueReusableCell(withIdentifier: mess?.sentUser?.username == user ? "home" : "away", for: indexPath)
 
         cell.textLabel?.text = mess?.content

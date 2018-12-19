@@ -20,6 +20,8 @@ extension Conversation {
     @NSManaged public var messages: NSSet?
     @NSManaged public var users: NSSet?
     @NSManaged public var url:NSURL?
+    @NSManaged public var id:Int32
+
 }
 
 // MARK: Generated accessors for messages

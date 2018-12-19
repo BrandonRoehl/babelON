@@ -50,25 +50,57 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
                     }
                 } else {
                     self.loggedIn = true
+                }
+                
+                DispatchQueue.main.async {
                     loadConversations()
-                    DispatchQueue.main.async {
                     self.tableView.reloadData()
-                    }
                 }
             }
-            
         }
-        
     }
 
     @objc
     func insertNewObject(_ sender: Any) {
-        //make conversation
-        //add to db
-        //go to detail view for that convo
-        //send a message in the convo like normal
-        
-        
+        let alert = UIAlertController(title: "New conversation", message: "Enter a name and a message", preferredStyle: .alert)
+        alert.addTextField(configurationHandler: { (textField) in
+            textField.placeholder = "Username"
+        })
+        alert.addTextField(configurationHandler: { (textField) in
+            textField.placeholder = "Message"
+        })
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
+            let username = alert?.textFields?[0].text
+            let message = alert?.textFields?[1].text
+
+            if (!(message?.isEmpty)!){
+                let SITE_URL = "https://babelon.herokuapp.com"
+                let url = URL(string: "\(SITE_URL)/send_msg")!
+                let semaphore = DispatchSemaphore(value: 0)
+                var request = URLRequest(url: url)
+                request.httpMethod = "POST"
+                request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+                let params: [String: Any] = [
+                    "content": message ?? "",
+                    "usernames": [username!],
+                    ]
+                request.httpBody = try? JSONSerialization.data(withJSONObject: params, options: [])
+                URLSession.shared.dataTask(with: request) { (data, response, error) in
+                    // Print the result
+                    print(response as Any)
+                    semaphore.signal()
+                    }.resume()
+                semaphore.wait()
+                
+                DispatchQueue.main.async {
+                    loadConversations()
+                    self.tableView.reloadData()
+                }
+            }
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+//        alert.addAction(UIAlertAction.Style.cancel)
+        self.present(alert, animated: true, completion: nil)
         
     }
 
