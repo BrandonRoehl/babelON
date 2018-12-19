@@ -98,7 +98,7 @@ class DetailViewController: UITableViewController {
         
         let mess = (conversation.messages?.allObjects[indexPath.row] as? Message)
         let user = UserDefaults.standard.string(forKey: "username")
-        let cell = tableView.dequeueReusableCell(withIdentifier: mess?.sentUser?.username == user ? "home" : "away", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: mess?.sentUser?.username == user ? "away" : "home", for: indexPath)
 
         cell.textLabel?.text = mess?.content
         // Configure the cell...
