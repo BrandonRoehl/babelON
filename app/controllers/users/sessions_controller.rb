@@ -10,7 +10,23 @@ class Users::SessionsController < Devise::SessionsController
 
   # POST /resource/sign_in
   def create
-    super
+    puts("random stuff")
+    self.resource = warden.authenticate!(auth_options)
+    set_flash_message!(:notice, :signed_in)
+    sign_in(resource_name, resource)
+    yield resource if block_given?
+    respond_to do |format|
+      format.json do
+        if signed_in?
+          render json: { status: 401 }
+        else
+          render json: { status: 200 }
+        end
+      end
+      format.html do
+        respond_with resource, location: after_sign_in_path_for(resource)
+      end
+    end
   end
 
   # DELETE /resource/sign_out

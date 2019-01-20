@@ -2,7 +2,8 @@ Rails.application.routes.draw do
     mount ActionCable.server, at: '/cable'
 
     devise_for :users, controllers: {
-        registrations: 'users/registrations'
+        registrations: 'users/registrations',
+        sessions: 'users/sessions'
     }
 
     resources :conversations, except: [:edit, :new, :create]
